@@ -24,3 +24,6 @@ Setup<br>
 5. Watch the magic happen in Teams.
 
 *Preferably break it on purpose.
+
+
+<img width="1006" height="503" alt="image" src="https://github.com/user-attachments/assets/4e3d1753-a96f-4057-a920-9e6724b16747" />

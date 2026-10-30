@@ -18,7 +18,7 @@ Setup<br>
 3. Run `Install-DeployR-OSD-FailureMonitor.ps1` as Administrator on the DeployR server.
    This creates an event-triggered Scheduled Task that listens for new DeployR OSD failure events and launches the Teams notification script when one occurs.
 
-4. Break something in OSD.*
+4. Break something in OSD.*<br>
    DeployR will probably provide this step naturally sooner or later.
 
 5. Watch the magic happen in Teams.

@@ -1,18 +1,16 @@
-#DeployR OSD Failure Monitor
+DeployR OSD Failure Monitor
 
 Automatically detects DeployR OSD failures and sends a notification to Microsoft Teams when something goes wrong.
 No dashboard watching. No manual checking. If OSD crashes, Teams knows.
 Because finding out an OSD failed shouldn't require staring at a dashboard all day.
 
-###How it works
-Install-DeployR-OSD-FailureMonitor.ps1
+How it works<br>
+Install-DeployR-OSD-FailureMonitor.ps1 <br>
 Installs an event-triggered Scheduled Task that listens for new DeployR OSD failure events.
-
-teams-osd-error.ps1
+teams-osd-error.ps1<br>
 Picks up the failure event and sends a formatted Microsoft Teams notification with useful troubleshooting details.
 
-Setup
-
+Setup<br>
 1. Copy `teams-osd-error.ps1` to `D:\Monitoring` (or adjust the paths in both scripts).
 
 2. Add your Teams webhook URL to `teams-osd-error.ps1`.

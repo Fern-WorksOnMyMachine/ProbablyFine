@@ -6,7 +6,7 @@ Because finding out an OSD failed shouldn't require staring at a dashboard all d
 
 How it works<br>
 Install-DeployR-OSD-FailureMonitor.ps1 <br>
-Installs an event-triggered Scheduled Task that listens for new DeployR OSD failure events.
+Installs an event-triggered Scheduled Task that listens for new DeployR OSD failure events.<br>
 teams-osd-error.ps1<br>
 Picks up the failure event and sends a formatted Microsoft Teams notification with useful troubleshooting details.
 

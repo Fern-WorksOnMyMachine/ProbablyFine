@@ -1,4 +1,4 @@
-DeployR Application Forge
+<h1>DeployR Application Forge</h1>
 
 DeployR Application Forge is a lightweight PowerShell 7 GUI for creating and updating application content in DeployR in a simple and consistent way.<br>
 Fill in the application details, point it at your source folder and let the Forge do the repetitive work.

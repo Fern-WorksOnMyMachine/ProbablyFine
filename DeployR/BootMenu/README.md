@@ -72,3 +72,6 @@ This is where you define your environment.<br>
 Customers, roles, variables, descriptions and optional password protection are all defined here.<br>
 Role 2 is included as an example of a password-protected deployment role.<br>
 Default Password is Password 🤗<br>
+
+<strong>BootMenu</strong><br>
+Run from a DeployR Task Sequence using <code>BootMenu.ps1</code>. The menu launches fullscreen by default, because fullscreen is obviously more awesome. If you prefer a regular window, launch it with <code>BootMenu.ps1 -Windowed</code>.

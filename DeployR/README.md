@@ -1,4 +1,4 @@
-⚠️ The Very Serious Disclaimer
+<h1>⚠️ The Very Serious Disclaimer</h1>
 
 Most of the code in this repository is approximately 99% AI-generated and 1% me saying "yeah, that looks about right."
 

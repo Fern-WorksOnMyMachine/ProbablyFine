@@ -5,7 +5,7 @@ Most of the code in this repository is approximately 99% AI-generated and 1% me 
 There are no guarantees, no warranty, and absolutely no support.<br>
 Use anything here at your own risk, preferably not five minutes before going home.
 
-That said, the scripts have been tested and work suspiciously well on my machine.
+That said, the scripts have been tested and work suspiciously well in my environment.
 
 This repository mostly contains DeployR scripts, Task Sequence helpers, monitoring tools, GUIs, and other questionable attempts to make deployments a little easier, more consistent, or at least more entertaining.<br>
 If something breaks, you get to keep both pieces.

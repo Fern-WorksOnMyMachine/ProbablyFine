@@ -1,4 +1,4 @@
-DeployR Boot Menu<br>
+<h1>DeployR Boot Menu<br></h1>
 One menu. Many variables.<br>
 
 <img width="1247" height="920" alt="image" src="https://github.com/user-attachments/assets/dd9d8ba3-089b-47eb-9dfa-188d85d0db56" />
@@ -44,7 +44,7 @@ One main deployment workflow can therefore act as the entrance to many different
 How it works<br>
 The project consists of three files:
 
-BootMenu.ps1<br>
+<strong><big>BootMenu.ps1</big></strong><br>
 The main entry point.<br>
 It:<br>
 Loads the DeployR utility module<br>
@@ -55,7 +55,7 @@ Resolves the selected role<br>
 Sets the configured TSEnv variables<br>
 Supports different variables for physical devices and virtual machines
 
-BootMenu.Gui.ps1<br>
+<strong><big>BootMenu.Gui.ps1</big></strong><br>
 Contains the Windows Forms interface.<br>
 It handles:<br>
 Customer selection<br>
@@ -67,7 +67,7 @@ Keyboard navigation<br>
 Optional password-protected roles<br>
 The GUI itself does not decide what gets deployed. It simply presents the choices defined in the configuration and passes the selected role back to the main Boot Menu logic.
 
-BootMenu.Config.psd1<br>
+<strong><big>BootMenu.Config.psd1</big></strong><br>
 This is where you define your environment.<br>
 Customers, roles, variables, descriptions and optional password protection are all defined here.<br>
 Role 2 is included as an example of a password-protected deployment role.<br>

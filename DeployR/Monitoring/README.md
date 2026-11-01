@@ -1,4 +1,4 @@
-DeployR OSD Failure Monitor
+<h1>DeployR OSD Failure Monitor</h1>
 
 Automatically detects DeployR OSD failures and sends a notification to Microsoft Teams when something goes wrong.
 No dashboard watching. No manual checking. If OSD crashes, Teams knows.

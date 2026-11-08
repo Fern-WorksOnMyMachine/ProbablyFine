@@ -4,8 +4,7 @@ One menu. Many variables.<br>
 
 <img width="1005" height="743" alt="image" src="https://github.com/user-attachments/assets/038d634c-a78b-487d-98f0-b5dc18f0a64c" />
 <img width="1007" height="745" alt="image" src="https://github.com/user-attachments/assets/80997be6-412b-4cec-85e4-079775cbed64" />
-
-
+<img width="976" height="708" alt="image" src="https://github.com/user-attachments/assets/c1e5c18f-3791-4b26-8342-ca9f4850c585" />
 
 
 A configurable PowerShell boot menu for DeployR that provides a simple graphical front end for selecting a customer and deployment role before starting a Task Sequence.

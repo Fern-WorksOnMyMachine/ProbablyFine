@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     DeployR Avalonia fireworks screen that runs for a fixed duration and closes automatically.
 .DESCRIPTION
@@ -7,7 +7,7 @@
 #>
 [CmdletBinding()]
 param(
-    [string]$Message = 'Everything should work... probably...',
+    [string]$Message = 'Everything should work, probably...',
 
     [ValidateRange(1, 120)]
     [int]$DurationSeconds = 10,
@@ -24,9 +24,8 @@ $LogFile = 'C:\Temp\TS-Fireworks-Avalonia.log'
 
 function Write-FireworksLog {
     param([string]$Text)
-    $DurationSeconds = [Math]::Max(1, $DurationSeconds)
 
-try {
+    try {
         if (-not (Test-Path -LiteralPath 'C:\Temp')) {
             New-Item -Path 'C:\Temp' -ItemType Directory -Force | Out-Null
         }
@@ -79,16 +78,15 @@ try {
             $env:DEPLOYR_FIREWORKS_WINDOWED = if ($Windowed) { '1' } else { '0' }
             $env:DEPLOYR_FIREWORKS_NOSOUND = if ($NoSound) { '1' } else { '0' }
 
-            $Arguments = @(
-                '-NoLogo'
-                '-NoProfile'
-                '-ExecutionPolicy', 'Bypass'
-                '-File', ('"{0}"' -f $PSCommandPath)
-                '-AvaloniaChild'
-            )
+            if ([string]::IsNullOrWhiteSpace($PSCommandPath) -or -not (Test-Path -LiteralPath $PSCommandPath)) {
+                Write-FireworksLog 'WARNING: Script path could not be resolved. Fireworks skipped.'
+                exit 0
+            }
+
+            $Arguments = '-NoLogo -NoProfile -ExecutionPolicy Bypass -File "{0}" -AvaloniaChild' -f $PSCommandPath
 
             Write-FireworksLog "Starting isolated Avalonia process with '$PowerShellHost'."
-            $Process = Start-Process -FilePath $PowerShellHost -ArgumentList $Arguments -WindowStyle Hidden -PassThru -Wait
+            $Process = Start-Process -FilePath $PowerShellHost -ArgumentList $Arguments -WindowStyle Hidden -PassThru -Wait -ErrorAction Stop
         }
         finally {
             $env:DEPLOYR_FIREWORKS_MESSAGE = $PreviousMessage
@@ -97,7 +95,7 @@ try {
             $env:DEPLOYR_FIREWORKS_NOSOUND = $PreviousNoSound
         }
 
-        if ($Process.ExitCode -ne 0) {
+        if ($null -ne $Process -and $Process.ExitCode -ne 0) {
             Write-FireworksLog "WARNING: The isolated fireworks process returned exit code $($Process.ExitCode). The task sequence will continue."
         }
         exit 0
@@ -115,15 +113,8 @@ try {
 
     Write-FireworksLog '=== CHILD START ==='
     Write-FireworksLog "Host: $((Get-Process -Id $PID).Path) | PS $($PSVersionTable.PSVersion) | Apartment: $([Threading.Thread]::CurrentThread.ApartmentState)"
-    Import-Module DeployR.Utility -ErrorAction SilentlyContinue
-
-    $DeployRRoot = $null
-    try { $DeployRRoot = [string]${TSEnv:DEPLOYRROOT} } catch { }
-    if ([string]::IsNullOrWhiteSpace($DeployRRoot)) {
-        $DeployRRoot = 'C:\Program Files\2Pint Software\DeployR'
-    }
-
-    $ClientPath = "$DeployRRoot\Client"
+    # Independent of the task-sequence provider. Use the local DeployR client runtime.
+    $ClientPath = 'C:\Program Files\2Pint Software\DeployR\Client'
     if (-not (Test-Path -LiteralPath "$ClientPath\Avalonia.Base.dll")) {
         Write-FireworksLog "WARNING: DeployR Avalonia runtime was not found in '$ClientPath'. Fireworks skipped."
         exit 0
@@ -229,10 +220,18 @@ try {
         <TextBlock Name="RightSpark" Text="✦" IsVisible="False" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,65,0" Foreground="#F9A8D4" FontSize="22" Opacity="0.7"/>
 
         <!-- Premium glass success card. -->
-        <Border Width="960" Height="430" HorizontalAlignment="Center" VerticalAlignment="Center"
-                CornerRadius="38" BorderThickness="3" BorderBrush="#F05BE7FF"
-                Background="#E3070C18" BoxShadow="0 44 125 0 #F0000000">
-          <Grid Margin="42,34,42,30">
+        <Border Width="960" Height="408" HorizontalAlignment="Center" VerticalAlignment="Center"
+                CornerRadius="38" BorderThickness="3"
+                Background="#B5070C18" BoxShadow="0 44 125 0 #F0000000">
+          <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+              <GradientStop Color="#F022D3EE" Offset="0" />
+              <GradientStop Color="#EE38BDF8" Offset="0.48" />
+              <GradientStop Color="#E6A855F7" Offset="0.76" />
+              <GradientStop Color="#E6F472B6" Offset="1" />
+            </LinearGradientBrush>
+          </Border.BorderBrush>
+          <Grid Margin="42,28,42,25">
             <Grid.RowDefinitions>
               <RowDefinition Height="Auto" />
               <RowDefinition Height="*" />
@@ -254,13 +253,13 @@ try {
             </Grid>
 
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        MaxWidth="800" Spacing="18">
+                        MaxWidth="800" Spacing="15">
               <TextBlock Name="PartyText" Text="MISSION ACCOMPLISHED"
                          HorizontalAlignment="Center" Foreground="#D5FAFF" FontSize="13"
                          FontWeight="Bold" LetterSpacing="2.5" Opacity="0.82" />
               <Grid Width="96" Height="96" HorizontalAlignment="Center">
-                <Border Name="SuccessRingOuter" Width="96" Height="96" CornerRadius="48" BorderBrush="#4D22D3EE" BorderThickness="2"/>
-                <Border Name="SuccessRingMid" Width="82" Height="82" CornerRadius="41" BorderBrush="#70A855F7" BorderThickness="2"/>
+                <Border Name="SuccessRingOuter" Width="96" Height="96" CornerRadius="48" BorderBrush="#6622D3EE" BorderThickness="1.5"/>
+                <Border Name="SuccessRingMid" Width="82" Height="82" CornerRadius="41" BorderBrush="#80A855F7" BorderThickness="1.5"/>
                 <Border Width="68" Height="68" CornerRadius="34" Background="#3034D399" BorderBrush="#B034D399" BorderThickness="2">
                   <TextBlock Text="✓" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#75FBD0" FontSize="44" FontWeight="Bold" />
                 </Border>
@@ -281,8 +280,8 @@ try {
                          TextWrapping="Wrap" Foreground="#E4F4FC" FontSize="28"
                          FontWeight="SemiBold" LineHeight="38" />
               <TextBlock Name="StatusText" Text="CONFIDENCE LEVEL: SUSPICIOUSLY HIGH"
-                         HorizontalAlignment="Center" Foreground="#6F8FA4" FontSize="11"
-                         FontWeight="SemiBold" LetterSpacing="2.2" />
+                         HorizontalAlignment="Center" Foreground="#55778C" FontSize="10"
+                         FontWeight="SemiBold" LetterSpacing="1.9" />
             </StackPanel>
 
             <Grid Grid.Row="2">
@@ -351,9 +350,7 @@ try {
     $script:PaletteIndex = 0
     $script:FrameNumber = 0
     $script:Closing = $false
-    $script:Beat = 0
     $script:FinaleTriggered = $false
-    $TitlePulseTransform = [Avalonia.Media.ScaleTransform]::new(1.0, 1.0)
     $PartyMarkRotate = [Avalonia.Media.RotateTransform]::new(0)
     $LeftSparkRotate = [Avalonia.Media.RotateTransform]::new(0)
     $RightSparkRotate = [Avalonia.Media.RotateTransform]::new(0)
@@ -512,7 +509,7 @@ try {
             Shape = $Shape; X = $X; Y = $Y
             VelocityX = ($Random.NextDouble() - 0.5) * 0.75
             VelocityY = -(8.8 + $Random.NextDouble() * 2.5)
-            TargetY = 70 + ($Random.NextDouble() * 205)
+            TargetY = 55 + ($Random.NextDouble() * 190)
             Palette = $Palettes[$script:PaletteIndex % $Palettes.Count]
         })
         $script:PaletteIndex++
@@ -532,6 +529,7 @@ try {
         try {
             $Now = [DateTime]::Now
             if ($Now -ge $EndTime) { Close-Fireworks; return }
+            $Elapsed = ($Now - $StartTime).TotalSeconds
             $script:FrameNumber++
             # Persistent corner fountains for the complete show. Small recurring bursts keep them continuous
             # without adding permanent controls or unbounded particle growth.
@@ -543,8 +541,9 @@ try {
             $Finale = $Remaining -le [Math]::Min(5.0, [Math]::Max(2.5, $DurationSeconds * 0.20))
             if (($script:FrameNumber % 42) -eq 0 -and $Particles.Count -lt 860) { Add-ConfettiBurst -Count 10 }
             if (($script:FrameNumber % 54) -eq 0 -and -not $Finale) {
-                $rx = 150 + $Random.NextDouble()*980
-                $ry = 85 + $Random.NextDouble()*190
+                $Side = $Random.Next(0, 2)
+                $rx = if ($Side -eq 0) { 70 + $Random.NextDouble()*300 } else { 910 + $Random.NextDouble()*300 }
+                $ry = 45 + $Random.NextDouble()*180
                 if (($script:FrameNumber % 108) -eq 0) {
                     Add-Starburst -X $rx -Y $ry -Palette $Palettes[$Random.Next(0,$Palettes.Count)] -Arms 11
                 } else {
@@ -622,7 +621,6 @@ try {
                 }
             }
 
-            $Elapsed = ($Now - $StartTime).TotalSeconds
             $Pulse = 0.92 + ([Math]::Sin($Elapsed * 2.8) * 0.08)
             $TitleText.Opacity = 0.97 + ([Math]::Sin($Elapsed * 2.2) * 0.03)
             $TopGlow.Opacity = $Pulse
@@ -638,12 +636,12 @@ try {
             $RightSpark.Opacity = 0.40 + ([Math]::Abs([Math]::Cos($Elapsed * 4.8)) * 0.55)
             $MegaWowBack.Opacity = 0.045 + ([Math]::Abs([Math]::Sin($Elapsed * 1.7)) * 0.055)
             $MegaWowBottom.Opacity = 0.035 + ([Math]::Abs([Math]::Cos($Elapsed * 1.5)) * 0.045)
-            $RingScale = 0.92 + ([Math]::Abs([Math]::Sin($Elapsed * 4.0)) * 0.16)
+            $RingScale = 0.95 + ([Math]::Abs([Math]::Sin($Elapsed * 2.4)) * 0.10)
             $RingScaleTransform.ScaleX = $RingScale
             $RingScaleTransform.ScaleY = $RingScale
-            $SuccessRingOuter.Opacity = 0.35 + ([Math]::Abs([Math]::Sin($Elapsed * 4.0))*0.55)
-            $RingRotateTransform.Angle = -$Elapsed * 75
-            $SuccessRingMid.Opacity = 0.42 + ([Math]::Abs([Math]::Cos($Elapsed * 4.0))*0.48)
+            $SuccessRingOuter.Opacity = 0.42 + ([Math]::Abs([Math]::Sin($Elapsed * 2.4))*0.36)
+            $RingRotateTransform.Angle = -$Elapsed * 42
+            $SuccessRingMid.Opacity = 0.48 + ([Math]::Abs([Math]::Cos($Elapsed * 2.4))*0.30)
             if ($Finale) { $StatusText.Text = 'FINAL SEQUENCE  •  ABSOLUTELY UNNECESSARY' }
         }
         catch {

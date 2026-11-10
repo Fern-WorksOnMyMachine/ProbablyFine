@@ -1,3 +1,5 @@
+<img width="968" height="478" alt="image" src="https://github.com/user-attachments/assets/9d3225a5-6647-49e0-9283-e69860006ccb" />
+
 A lightweight battery check popup for deployments.
 Built for DeployR task sequences using the Avalonia runtime already shipped with the DeployR client. Probably works. Definitely looks better than a MessageBox. 😎
 
@@ -11,5 +13,3 @@ IsOnBattery  Equals  True
 <img width="452" height="311" alt="image" src="https://github.com/user-attachments/assets/73cbcf48-a128-4cd5-9582-804148cecc46" />
 
 This ensures the step only runs when the device is actually running on battery power. If external power is already connected, the step is simply skipped.
-
-<img width="968" height="478" alt="image" src="https://github.com/user-attachments/assets/9d3225a5-6647-49e0-9283-e69860006ccb" />

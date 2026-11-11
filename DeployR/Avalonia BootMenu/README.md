@@ -139,7 +139,7 @@ Role 2 is included as an example of a password-protected deployment role.
 </p>
 
 <p>
-<strong>Default example password:</strong> <code>Password</code> 🤗
+<strong>Default example password:</strong> <code>ChangeMe</code> 🤗
 </p>
 
 <p>

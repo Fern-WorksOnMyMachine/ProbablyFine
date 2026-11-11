@@ -21,4 +21,8 @@ No deployment logic.<br>
 Usage<br>
 TS-Fireworks-Avalonia-Public.ps1 -DurationSeconds 20
 
+<p>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
+</p>
+
 <img width="1017" height="761" alt="image" src="https://github.com/user-attachments/assets/77b882ed-9ec8-44a8-bbb7-15107fc42253" />

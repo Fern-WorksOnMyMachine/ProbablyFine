@@ -36,9 +36,10 @@ Copy the contents of the <strong>Client</strong> directory to:
 <pre><code>C:\_2P\Client</code></pre>
 
 <p>
-Copy the <strong>Runtimes</strong> directory into the same location,
-preserving its directory structure.
+Copy the contents of the <strong>Runtimes</strong> directory to:
 </p>
+
+<pre><code>C:\_2P\Runtimes</code></pre>
 
 <p>
 The resulting directory structure should look similar to:
@@ -51,10 +52,10 @@ The resulting directory structure should look similar to:
     Avalonia.Markup.Xaml.dll
     Avalonia.Markup.Xaml.Loader.dll
     ...
-    runtimes\
-        win-x64\
-            native\
-                ...</code></pre>
+C:\_2P\Client\runtimes\
+    win-x64\
+    native\
+    ...</code></pre>
 
 <p>
 <strong>Important:</strong>
@@ -342,5 +343,5 @@ small change.
 </p>
 
 <p>
-<strong>Less rebooting. More debugging. ProbablyFine&trade;</strong>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
 </p>

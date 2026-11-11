@@ -27,6 +27,7 @@ pwsh.exe -NoProfile -File "C:\Scripts\DeployR-BatteryWarning-Avalonia.ps1"
 For scripts that require the native library path to be configured manually:
 
 pwsh.exe -NoProfile -Command '$env:PATH="C:\_2P\Client\runtimes\win-x64\native;$env:PATH"; & "C:\Scripts\TS-Fireworks-Avalonia.ps1" -DurationSeconds 15'
+
 4. Testing without a DeployR task sequence
 Some scripts support a built-in demo mode.
 

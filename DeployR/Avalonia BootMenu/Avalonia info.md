@@ -34,7 +34,7 @@ Copy the contents of the <strong>Client</strong> directory to:
 </p>
 
 <pre><code>C:\_2P\Client<br>
-    C:\_2P\Runtimes</code></pre>
+C:\_2P\Runtimes</code></pre>
 
 <p>
 Copy the <strong>Runtimes</strong> directory into the same location,

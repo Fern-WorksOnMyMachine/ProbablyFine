@@ -166,10 +166,6 @@ because fullscreen is obviously more awesome.
 <pre><code>.\BootMenu.ps1 -Windowed</code></pre>
 
 <p>
-Same Boot Menu. Same functionality. Just a little less dramatic.
-</p>
-
-<p>
 <strong>That's it.</strong> Select a customer, choose a role,
 set some variables, and let DeployR take care of the rest.
 </p>

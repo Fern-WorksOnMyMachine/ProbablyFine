@@ -36,8 +36,7 @@ Copy the contents of the <strong>Client</strong> directory to:
 <pre><code>C:\_2P\Client</code></pre>
 
 <p>
-Copy the <strong>Runtimes</strong> directory into the same location,
-preserving its directory structure.
+Copy the contents of the <strong>Runtimes</strong> directory to:
 </p>
 
 <pre><code>C:\_2P\Runtimes</code></pre>

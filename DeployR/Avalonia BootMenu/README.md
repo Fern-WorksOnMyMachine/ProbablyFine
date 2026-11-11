@@ -6,73 +6,174 @@ One menu. Many variables.<br>
 <img width="1000" height="738" alt="image" src="https://github.com/user-attachments/assets/68145e04-f4e9-46ae-bec9-e09d78904315" />
 <img width="961" height="700" alt="image" src="https://github.com/user-attachments/assets/90e6e1a5-576c-4c84-bba0-6177f0955051" />
 
+<p>
+A modern, Avalonia-based boot menu for
+<strong>2Pint DeployR</strong>, designed to provide a clean
+and user-friendly experience during operating system deployment.
+</p>
 
+<p>
+DeployR BootMenu provides a customizable graphical interface
+for deployment-related selections and actions, replacing
+traditional PowerShell and Windows Forms-style dialogs
+with a modern Windows-inspired design.
+</p>
 
-A configurable PowerShell boot menu for DeployR that provides a simple graphical front end for selecting a customer and deployment role before starting a Task Sequence.
-The Boot Menu does not install applications, configure Windows, apply policies, or perform the deployment itself.<br>
-It has one job:<br>
-Set Task Sequence variables.<br>
-What you do with those variables afterwards is entirely up to your Task Sequence.
+<hr>
 
-Why?<br>
-A single Task Sequence can quickly turn into a collection of conditions, customer-specific branches, operating systems, application sets, Autopilot profiles and nested Task Sequences.
-Instead of creating a separate deployment workflow for every possible combination, the Boot Menu can act as the selection layer.
+<h2>Overview</h2>
 
-Customer 1<br>
-└── Role 1
+<p>
+The goal of this project is simple:
+make the deployment experience cleaner, more intuitive,
+and a little more enjoyable for technicians.
+</p>
 
-Customer 1<br>
-└── Role 2
+<p>
+The interface is designed for use in
+<strong>DeployR task sequences and WinPE</strong>,
+with an emphasis on readability, simplicity,
+and reliable interaction.
+</p>
 
-Customer 2<br>
-└── Role 1
+<hr>
 
-Customer 2<br>
-└── Role 2
+<h2>Features</h2>
 
-Each selection can populate any number of TSEnv variables.<br>
-Your Task Sequence can then use those variables to decide:<br>
-Which operating system to deploy<br>
-Which applications to install<br>
-Which configuration to apply<br>
-Which customer-specific logic to execute<br>
-Which sub Task Sequence to run<br>
-Or pretty much anything else that can be controlled by a Task Sequence condition<br>
+<ul>
+    <li>Modern Avalonia-based graphical interface.</li>
+    <li>Clean, dark-themed design.</li>
+    <li>Designed for deployment workflows in DeployR.</li>
+    <li>Suitable for WinPE environments.</li>
+    <li>Clear and accessible deployment controls.</li>
+    <li>Consistent visual styling.</li>
+    <li>PowerShell-based implementation.</li>
+</ul>
 
-The particularly useful part is using the selected role to branch into different sub Task Sequences for different customers or deployment scenarios.<br>
-One main deployment workflow can therefore act as the entrance to many different deployment paths.<br>
+<hr>
 
-How it works<br>
-The project consists of three files:
+<h2>Requirements</h2>
 
-<strong><big>BootMenu.ps1</big></strong><br>
-The main entry point.<br>
-It:<br>
-Loads the DeployR utility module<br>
-Loads the configuration<br>
-Loads the GUI<br>
-Builds the available customer and role selections<br>
-Resolves the selected role<br>
-Sets the configured TSEnv variables<br>
-Supports different variables for physical devices and virtual machines
+<ul>
+    <li>2Pint DeployR.</li>
+    <li>PowerShell 7.</li>
+    <li>Avalonia runtime dependencies available in the environment.</li>
+    <li>A compatible DeployR WinPE boot image.</li>
+</ul>
 
-<strong><big>BootMenu.Gui.ps1</big></strong><br>
-Contains the Windows Forms interface.<br>
-It handles:<br>
-Customer selection<br>
-Deployment role selection<br>
-Role information<br>
-Computer information<br>
-Deployment confirmation<br>
-Keyboard navigation<br>
-Optional password-protected roles<br>
-The GUI itself does not decide what gets deployed. It simply presents the choices defined in the configuration and passes the selected role back to the main Boot Menu logic.
+<p>
+<strong>Note:</strong>
+Avalonia runtime setup and local offline testing
+are documented separately.
+</p>
 
-<strong><big>BootMenu.Config.psd1</big></strong><br>
-This is where you define your environment.<br>
-Customers, roles, variables, descriptions and optional password protection are all defined here.<br>
-Role 2 is included as an example of a password-protected deployment role.<br>
-Default Password is Password 🤗<br>
+<hr>
 
-<strong>BootMenu</strong><br>
-Run from a DeployR Task Sequence using <code>BootMenu.ps1</code>. The menu launches fullscreen by default, because fullscreen is obviously more awesome. If you prefer a regular window, launch it with <code>BootMenu.ps1 -Windowed</code>.
+<h2>Using BootMenu in DeployR</h2>
+
+<p>
+DeployR BootMenu is intended to run as part of
+a DeployR deployment workflow.
+</p>
+
+<p>
+Add the BootMenu PowerShell script to a DeployR
+content item and reference it from the appropriate
+task sequence step.
+</p>
+
+<p>
+When executed, BootMenu displays its graphical interface
+and allows the technician to interact with the available
+deployment options.
+</p>
+
+<p>
+The exact task sequence configuration depends on
+how BootMenu is integrated into your deployment workflow.
+</p>
+
+<hr>
+
+<h2>Design Philosophy</h2>
+
+<p>
+BootMenu focuses on three principles:
+</p>
+
+<ul>
+    <li>
+        <strong>Simple:</strong>
+        Keep the interface clean and avoid unnecessary complexity.
+    </li>
+    <li>
+        <strong>Modern:</strong>
+        Use a consistent visual design with clear typography,
+        balanced spacing, and intuitive controls.
+    </li>
+    <li>
+        <strong>Practical:</strong>
+        Prioritize features that are genuinely useful
+        during operating system deployment.
+    </li>
+</ul>
+
+<hr>
+
+<h2>WinPE Compatibility</h2>
+
+<p>
+BootMenu is designed with DeployR WinPE execution in mind.
+</p>
+
+<p>
+When using Avalonia-based interfaces in WinPE,
+runtime dependencies, process isolation, and access
+to the deployment environment must be handled correctly.
+</p>
+
+<p>
+Always validate BootMenu in your actual DeployR
+WinPE environment before using it in production.
+</p>
+
+<hr>
+
+<h2>Important Notes</h2>
+
+<ul>
+    <li>
+        This project is intended for DeployR deployment environments.
+    </li>
+    <li>
+        Ensure the required Avalonia dependencies are available.
+    </li>
+    <li>
+        Test the interface at different screen resolutions.
+    </li>
+    <li>
+        Verify all deployment actions before production use.
+    </li>
+    <li>
+        Refer to the separate Avalonia offline testing guide
+        for local development and troubleshooting.
+    </li>
+</ul>
+
+<hr>
+
+<h2>Final Words</h2>
+
+<p>
+Operating system deployment does not have to look like 2005.
+</p>
+
+<p>
+DeployR BootMenu brings a modern interface to the
+deployment process while keeping the focus on
+practical functionality and usability.
+</p>
+
+<p>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
+</p>

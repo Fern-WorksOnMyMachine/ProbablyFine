@@ -342,5 +342,5 @@ small change.
 </p>
 
 <p>
-<strong>Less rebooting. More debugging. ProbablyFine&trade;</strong>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
 </p>

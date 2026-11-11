@@ -11,4 +11,9 @@ After the popup has been acknowledged, the Task Sequence can handle what happens
 
 In short: certification logic outside, useful popup inside, unsupported hardware goes no further.
 
+<p>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
+</p>
+
+
 <img width="902" height="602" alt="image" src="https://github.com/user-attachments/assets/41726607-1c2b-49e7-a044-a28b43fce8bf" />

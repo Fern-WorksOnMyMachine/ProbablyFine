@@ -25,5 +25,10 @@ Setup<br>
 
 *Preferably break it on purpose.
 
+<p>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
+</p>
+
+
 
 <img width="1006" height="503" alt="image" src="https://github.com/user-attachments/assets/4e3d1753-a96f-4057-a920-9e6724b16747" />

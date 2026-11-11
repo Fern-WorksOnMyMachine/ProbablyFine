@@ -39,4 +39,9 @@ Access to your DeployR environment<br>
 A valid DeployR passcode<br>
 Enough confidence to click SEND IT TO DEPLOYR<br>
 
+<p>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
+</p>
+
+
 <img width="957" height="842" alt="image" src="https://github.com/user-attachments/assets/99ec2710-d12c-45fd-bc39-f53a63754db6" />

@@ -13,3 +13,8 @@ IsOnBattery  Equals  True
 <img width="452" height="311" alt="image" src="https://github.com/user-attachments/assets/73cbcf48-a128-4cd5-9582-804148cecc46" />
 
 This ensures the step only runs when the device is actually running on battery power. If external power is already connected, the step is simply skipped.
+
+<p>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
+</p>
+

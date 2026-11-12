@@ -19,3 +19,7 @@ But who knows? Something here might actually work for you too. 😉
 Test first. Deploy second. Blame AI third.
 
 <img width="540" height="362" alt="image" src="https://github.com/user-attachments/assets/af37b206-02ad-446d-af93-86a86d3ded34" />
+
+<p>
+<strong>Less clicking. More deploying. ProbablyFine&trade;</strong>
+</p>

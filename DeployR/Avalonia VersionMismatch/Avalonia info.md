@@ -52,7 +52,7 @@ The resulting directory structure should look similar to:
     Avalonia.Markup.Xaml.dll
     Avalonia.Markup.Xaml.Loader.dll
     ...
-C:\_2P\Client\runtimes\
+C:\_2P\runtimes\
     win-x64\
     native\
     ...</code></pre>

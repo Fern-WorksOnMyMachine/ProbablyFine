@@ -150,8 +150,3 @@ $Shortcut.Save()</code></pre>
   <li>Review generated identifiers before using them in production deployment automation.</li>
 </ul>
 
-<br>
-
-<h2>License</h2>
-
-<p>Add the license that applies to your repository, for example MIT, before publishing or redistributing the script.</p>

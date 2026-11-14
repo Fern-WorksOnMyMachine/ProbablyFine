@@ -24,7 +24,7 @@
 </p>
 
 <blockquote>
-  <strong>Important:</strong> This script is informational only. It always exits with code <code>0</code> and does <strong>not</strong> stop the task sequence itself. Configure your DeployR task sequence to handle the unsupported model and stop deployment separately.
+  <strong>Important:</strong> This script is informational only. It always exits with code <code>0</code> and does <strong>not</strong> stop the task sequence itself. Configure your DeployR task sequence to handle the unsupported model and stop deployment separately.  For example, add a wpeutil shutdown step directly afterwards to shut down the device and prevent the deployment from continuing.
 </blockquote>
 
 <h2>Features</h2>

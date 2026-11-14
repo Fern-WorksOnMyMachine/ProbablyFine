@@ -1,3 +1,7 @@
+<img width="1539" height="758" alt="image" src="https://github.com/user-attachments/assets/9b8e3def-78b7-465b-98f6-fe889884f6b3" />
+
+
+
 <h1>Device Model Explorer</h1>
 
 <p><strong>Device Model Explorer</strong> is a PowerShell 7 WPF utility for looking up HP and Lenovo device models and their deployment identifiers.</p>

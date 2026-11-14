@@ -136,7 +136,7 @@
     the OEM Driver Catalog API. This is how I obtained mine, not an officially documented procedure.
   </p>
   <pre><code>$DeployRToken = 'YOUR_TOKEN_HERE'</code></pre>
-  <p><strong>🔒 Security:</strong> Treat the token as a secret. Never publish it on GitHub, share it in screenshots, or include it in publicly shared logs.</p>
+
   <p>I borrowed mine from a log file. Let's call it creative troubleshooting. ProbablyFine™ 😎</p>
 
   <h3>7za.exe</h3>

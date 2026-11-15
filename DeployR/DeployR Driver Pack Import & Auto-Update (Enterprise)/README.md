@@ -116,8 +116,7 @@
   <h3>DeployRPasscode</h3>
   <p>
     <code>$DeployRPasscode</code> is used by <code>Connect-DeployR</code> to authenticate to the DeployR
-    environment. Enter it only in your private local copy or provide it through your own secure
-    mechanism. Do not commit a real passcode to GitHub.
+    environment.
   </p>
 
   <h3>🔑 DeployRToken (Enterprise Only)</h3>
